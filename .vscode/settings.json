@@ -1,0 +1,16 @@
+{
+  "editor.tabSize": 2,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "debug.focusWindowOnBreak": false,
+  "search.exclude": {
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/docs": true
+  },
+}
