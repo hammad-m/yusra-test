@@ -7,6 +7,7 @@ import { addTransactionalDataSource } from "typeorm-transactional";
 
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
+import { TodoModule } from "./modules/todo/todo.module";
 
 @Module( {
   imports: [
@@ -33,6 +34,7 @@ import { AppService } from "./app.service";
     } ),
     ConfigModule.forRoot( { isGlobal: true } ),
     EventEmitterModule.forRoot( { global: true } ),
+    TodoModule,
   ],
   controllers: [ AppController ],
   providers: [ AppService ],
