@@ -1,0 +1,38 @@
+POST http://localhost:3000/api/todo
+Content-Type: application/json
+
+{
+  "name": "Yusra Engineering Assessment",
+  "description": "Do this assessment by sunday",
+  "deadline": "2023-11-20T12:00:00.000Z"
+}
+
+####
+
+PATCH http://localhost:3000/api/todo/1
+Content-Type: application/json
+
+{
+  "name": "Yusra Engineering Assessment updated",
+  "deadline": "2023-11-10T12:00:00.000Z",
+  "isCompleted": true
+}
+
+###
+GET http://localhost:3000/api/todo/1
+
+###
+GET http://localhost:3000/api/todo/pending
+
+####
+GET http://localhost:3000/api/todo
+
+####
+DELETE http://localhost:3000/api/todo/1
+
+####
+GET http://localhost:3000/api/todo/completed
+
+#####
+GET http://localhost:3000/api/todo/missed
+
