@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 
 import type { CreateTodoDto } from "../dtos/create-todo.dto";
 import type { UpdateTodoDto } from "../dtos/update-todo.dto";
@@ -17,7 +17,7 @@ export class TodoService {
 
   updateTodo( id: number, updateTodoDto: UpdateTodoDto ) {
     if( ! id ) {
-      return new BadRequestException( "id missing from body" );
+      throw new BadRequestException( "id missing from body" );
     }
 
     updateTodoDto.id = id;
@@ -44,7 +44,13 @@ export class TodoService {
     return this.todoRepository.getPendingTodos();
   }
 
-  getTodoById( id: number ) {
-    return this.todoRepository.getTodoById( id );
+  async getTodoById( id: number ) {
+    const todo = await this.todoRepository.getTodoById( id );
+
+    if( ! todo ) {
+      throw new NotFoundException( "Todo not found" );
+    }
+
+    return todo;
   }
 }
